@@ -15,13 +15,13 @@ export default function Home({posts, events, media}) {
     )
   });
 
-  const jsxEvents = events.map(event => {
-    const featuredMediaId = event["featured_media"];
-    const featuredMedia = getFeaturedMedia(media, featuredMediaId);
-    return (
-      <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
-    )
-  });
+  // const jsxEvents = events.map(event => {
+  //   const featuredMediaId = event["featured_media"];
+  //   const featuredMedia = getFeaturedMedia(media, featuredMediaId);
+  //   return (
+  //     <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
+  //   )
+  // });
 
   return (
     <>
@@ -39,10 +39,7 @@ export default function Home({posts, events, media}) {
             <h2 className="pb-3">Our blog posts</h2>
             {jsxPosts}
           </div>
-          <div className="col-lg-4">
-            <h2 className="pb-3">Events</h2>
-            {jsxEvents}
-          </div>
+        
         </div>
       </div>
     </>
@@ -53,13 +50,13 @@ export default function Home({posts, events, media}) {
 export async function getStaticProps({ params }) {
 
   const posts = await getPosts();
-  const events = await getEvents();
+ // const events = await getEvents();
   const media = await getMedia();
 
   return {
     props: {
      posts,
-     events,
+    // events,
      media
     },
     revalidate: 10, // In seconds
