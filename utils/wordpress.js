@@ -1,4 +1,4 @@
-const BASE_URL = "https://coinfaqs.org/wp-json/wp/v2";
+const BASE_URL = "https://coinfaqs.org/graphql";
 
 export async function getPosts() {
      const postsRes = await fetch(BASE_URL + "/posts");

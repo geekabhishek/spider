@@ -15,34 +15,34 @@ export default function Home({posts, events, media}) {
     )
   });
 
-  // const jsxEvents = events.map(event => {
-  //   const featuredMediaId = event["featured_media"];
-  //   const featuredMedia = getFeaturedMedia(media, featuredMediaId);
-  //   return (
-  //     <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
-  //   )
-  // });
+  const jsxEvents = events.map(event => {
+    const featuredMediaId = event["featured_media"];
+    const featuredMedia = getFeaturedMedia(media, featuredMediaId);
+    return (
+      <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
+    )
+  });
 
   return (
     <>
       <Head>
-        <title>Spidy Blog</title>
+        <title>Tech Blog</title>
         <meta name="description" content="Keep up to date with the latest trends in tech" />
         <link rel="icon" href="/favicon.ico" />
         {/* You can add more metadata here, like open graph tags for social media, etc */}
       </Head>
 
       <div className="container pt-5">
-        <h1 className="text-center pb-5">Spidy Blog</h1>
+        <h1 className="text-center pb-5">Tech Blog</h1>
         <div className="row">
           <div className="col-lg-8">
             <h2 className="pb-3">Our blog posts</h2>
             {jsxPosts}
           </div>
-          {/*<div className="col-lg-4">
+          <div className="col-lg-4">
             <h2 className="pb-3">Events</h2>
             {jsxEvents}
-          </div>*/}
+          </div>
         </div>
       </div>
     </>
@@ -53,13 +53,13 @@ export default function Home({posts, events, media}) {
 export async function getStaticProps({ params }) {
 
   const posts = await getPosts();
-//  const events = await getEvents();
+  const events = await getEvents();
   const media = await getMedia();
 
   return {
     props: {
      posts,
-   //  events,
+     events,
      media
     },
     revalidate: 10, // In seconds

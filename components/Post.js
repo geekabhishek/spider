@@ -1,16 +1,14 @@
-import Head from 'next/head'
+
 import Link from "next/link";
 import Image from "next/image";
+//to use Image with an external url, add some config on next.config.js
+//for more info, check out these docs https://nextjs.org/docs/basic-features/image-optimization
 
 import {getDate} from "../utils/utils";
 
 export default function Post({post, featuredMedia}) {
 
     return (
-        <>
-        <Head>
-        <title>{post.title.rendered}</title>
-        </Head>
         <div className="card mb-3" style={{maxWidth: "540px"}}>
             <div className="row g-0">
                 <div className="col-md-4">
@@ -32,7 +30,6 @@ export default function Post({post, featuredMedia}) {
                 </div>
             </div>
         </div>
-        </>
     )
 
 }
