@@ -15,13 +15,6 @@ export default function Home({posts, events, media}) {
     )
   });
 
-  // const jsxEvents = events.map(event => {
-  //   const featuredMediaId = event["featured_media"];
-  //   const featuredMedia = getFeaturedMedia(media, featuredMediaId);
-  //   return (
-  //     <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
-  //   )
-  // });
 
   return (
     <>
